@@ -56,5 +56,5 @@ Follow the steps for visualization,
 # Run the PlanarRRT 
 nose2 test.test_planar_rrt
 ```
-![RRT Tree](/home/yogesh/Git/motion_planning/Figure_1.png)
-Format: ![Alt Text](url)
+![RRT Tree]
+(/home/yogesh/Git/motion_planning/Figure_1.png)
