@@ -41,13 +41,11 @@ class PlanarRRT(RRT):
             goal on success. On failure, returns None.
         """
         for k in range(self.max_iter):
-            # FILL in your code here
             sample = self._get_random_sample()
             neighbor = self._get_nearest_neighbor(sample)
             new_node = self._extend_sample(sample, neighbor)
 
             if new_node and self._check_for_completion(new_node):
-                # FILL in your code here
                 path = self._trace_path_from_start(new_node)
                 path.append(self.goal.state)
                 self._visualize(path=path, hold=True)

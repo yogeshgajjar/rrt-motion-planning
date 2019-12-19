@@ -90,17 +90,13 @@ class RRT():
             goal on success. On failure, returns None.
         """
         for k in range(self.max_iter):
-            # FILL in your code here
             sample = self._get_random_sample()
             neighbor = self._get_nearest_neighbor(sample)
             new_node = self._extend_sample(sample, neighbor)
 
             if new_node and self._check_for_completion(new_node):
-                # FILL in your code here
                 path = self._trace_path_from_start(new_node)
                 path.append(self.goal.state)
-
-
                 return path
 
         print("Failed to find path from {0} to {1} after {2} iterations!".format(
@@ -113,12 +109,9 @@ class RRT():
         :returns: A vector representing a randomly sampled point in the search
             space.
         """
-        # FILL in your code here
         point = np.arange(self.start.state[0], self.goal.state[0], 0.1)
         sample = np.random.choice(point, self.start.state.shape)
         return sample
-
-
 
     def _get_nearest_neighbor(self, sample):
         """
@@ -128,7 +121,6 @@ class RRT():
         :param sample: The target point to find the closest neighbor to.
         :returns: A Node object for the closest neighbor.
         """
-        # FILL in your code here
         min_dist = float('inf')
         distance = 0
 
@@ -151,7 +143,6 @@ class RRT():
         :param neighbor: closest existing node to sample
         :returns: The new Node object. On failure (collision), returns None.
         """
-        # FILL in your code here
 
         # if np.linalg.norm(sample - neighbor.state) < self.step_size:
         #     # print("For sample", self._check_for_collision(sample))
@@ -190,7 +181,6 @@ class RRT():
         :param node: The target Node
         :returns: Boolean indicating node is close enough for completion.
         """
-        # FILL in your code here
         if np.linalg.norm(node.state - self.goal.state) < self.step_size:
             return True
         else:
@@ -207,7 +197,6 @@ class RRT():
         :returns: A list of states (not Nodes!) beginning at the start state and
             ending at the goal state.
         """
-        # FILL in your code here
         list_states = []
         if node == None:
             node = self.goal
@@ -225,7 +214,6 @@ class RRT():
 
         :returns: A boolean value indicating that sample is in collision.
         """
-        # FILL in your code here
         if not self.obstacles:
             return False
         else:

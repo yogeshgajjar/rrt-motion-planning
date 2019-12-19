@@ -17,7 +17,6 @@ class CollisionObject(ABC):
         """
         pass
 
-
 class CollisionBox(CollisionObject):
     """
     N-dimensional box collision object.
@@ -32,7 +31,6 @@ class CollisionBox(CollisionObject):
         self.ndim = self.location.shape[0]
 
     def in_collision(self, target):
-        # FILL in your code here
         dim = self.location.shape
 
         max_coordinates = self.location + self.half_lengths
@@ -45,7 +43,6 @@ class CollisionBox(CollisionObject):
             return True
         else:
             return False
-
 
 class CollisionSphere(CollisionObject):
     """
@@ -60,7 +57,6 @@ class CollisionSphere(CollisionObject):
         self.radius = radius
 
     def in_collision(self, target):
-        # FILL in your code here
         coll_eqn = 0
         target = np.asarray(target)
         if target.shape != self.location.shape:
